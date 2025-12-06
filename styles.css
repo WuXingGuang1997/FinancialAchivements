@@ -242,13 +242,12 @@ body {
     }
     
     .header-actions {
-        flex-direction: row;
+        flex-direction: column;
         gap: 8px;
-        margin-left: auto;
     }
     
     .logout-btn {
-        width: auto;
+        width: 100%;
     }
 }
 
@@ -337,7 +336,6 @@ header {
     gap: 16px;
 }
 
-
 header h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: clamp(1.25em, 4vw, 1.75em);
@@ -386,74 +384,31 @@ header h1 {
 }
 
 .stats {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 4px !important;
-    width: 100% !important;
-    justify-content: space-between !important;
-    align-items: stretch !important;
-}
-
-/* Mobile: gap ancora più piccolo */
-@media (max-width: 767px) {
-    .stats {
-        gap: 2px !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+    width: 100%;
 }
 
 /* Tablet e Desktop */
 @media (min-width: 768px) {
     .stats {
-        gap: 24px !important;
-        justify-content: flex-start !important;
-        flex-wrap: wrap !important;
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
     }
 }
 
 .stat {
-    text-align: center;
+    text-align: left;
     position: relative;
-    padding: 4px 6px;
+    padding: 12px 20px;
     background: rgba(26, 26, 36, 0.8);
     border: 1px solid rgba(0, 243, 255, 0.3);
-    border-radius: 6px;
+    border-radius: 12px;
     transition: border-color 0.2s ease, transform 0.2s ease;
     will-change: transform;
     transform: translateZ(0);
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Mobile: riduci drasticamente */
-@media (max-width: 767px) {
-    .stat {
-        padding: 2px 3px !important;
-        border-radius: 4px !important;
-        min-height: auto !important;
-    }
-}
-
-/* Tablet e Desktop */
-@media (min-width: 768px) {
-    .stat {
-        padding: 12px 20px;
-        border-radius: 12px;
-        text-align: left;
-    }
-}
-
-/* Mobile: riduci drasticamente le stat */
-@media (max-width: 767px) {
-    .stat {
-        padding: 6px 10px !important;
-        border-radius: 8px !important;
-    }
 }
 
 .stat:hover {
@@ -464,58 +419,21 @@ header h1 {
 .stat-value {
     display: block;
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(0.6em, 2vw, 1.75em);
+    font-size: clamp(1.25em, 3vw, 1.75em);
     font-weight: 700;
     color: var(--neon-cyan);
-    text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
-    letter-spacing: 0;
-    line-height: 1;
-    margin-bottom: 2px;
-}
-
-/* Mobile: riduci font valore drasticamente */
-@media (max-width: 767px) {
-    .stat-value {
-        font-size: 0.6em !important;
-        margin-bottom: 0 !important;
-        line-height: 0.9 !important;
-    }
-}
-
-/* Mobile: riduci font valore */
-@media (max-width: 767px) {
-    .stat-value {
-        font-size: clamp(0.7em, 2vw, 1em) !important;
-        text-shadow: 0 0 5px rgba(0, 243, 255, 0.6);
-    }
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
+    letter-spacing: clamp(0.5px, 0.3vw, 1px);
 }
 
 .stat-label {
     display: block;
-    font-size: clamp(0.45em, 1.2vw, 0.85em);
+    font-size: clamp(0.75em, 2vw, 0.85em);
     color: rgba(255, 255, 255, 0.7);
-    margin-top: 2px;
+    margin-top: 4px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.2px;
-    line-height: 1;
-}
-
-/* Mobile: riduci font label drasticamente */
-@media (max-width: 767px) {
-    .stat-label {
-        font-size: 0.45em !important;
-        margin-top: 0 !important;
-        line-height: 0.9 !important;
-    }
-}
-
-/* Mobile: riduci font label */
-@media (max-width: 767px) {
-    .stat-label {
-        font-size: clamp(0.5em, 1.5vw, 0.7em) !important;
-        margin-top: 1px !important;
-    }
+    letter-spacing: clamp(0.5px, 0.3vw, 1px);
 }
 
 .categories {
@@ -797,136 +715,22 @@ header h1 {
     }
 }
 
-/* iPhone 12 e mobile small (max 430px) */
-@media screen and (max-width: 430px), screen and (max-width: 390px) {
-    .stats {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 3px !important;
-        justify-content: space-between !important;
-        align-items: stretch !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .stat {
-        flex: 1 !important;
-        padding: 3px 4px !important;
-        text-align: center !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-    .stat-value {
-        font-size: 0.7em !important;
-        margin-bottom: 0 !important;
-        line-height: 1 !important;
-    }
-    .stat-label {
-        font-size: 0.5em !important;
-        margin-top: 0 !important;
-        line-height: 1 !important;
-    }
-}
-
 /* Mobile Small (max 480px) */
 @media (max-width: 480px) {
     header {
-        padding: 4px 6px !important;
+        padding: 12px 16px;
     }
     
     .header-top {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px !important;
-        margin-bottom: 12px !important;
-    }
-    
-    .header-actions {
-        margin-left: auto !important;
-        flex-direction: row !important;
-        gap: 12px !important;
-        flex-shrink: 0 !important;
-        min-width: 0 !important;
-        padding-right: 8px !important;
-    }
-    
-    .user-selector-btn {
-        padding: 12px 20px !important;
-        font-size: 1.6em !important;
-        gap: 8px !important;
-        flex-shrink: 1 !important;
-        min-width: 0 !important;
-        max-width: 220px !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        white-space: nowrap !important;
-    }
-    
-    .user-selector-btn span {
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        white-space: nowrap !important;
-        font-size: 2em !important;
-    }
-    
-    .user-selector-btn .user-icon {
-        font-size: 2em !important;
-    }
-    
-    .logout-btn {
-        padding: 12px 20px !important;
-        font-size: 2em !important;
-        flex-shrink: 0 !important;
-        min-width: 72px !important;
-        width: auto !important;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 12px;
     }
     
     header h1 {
-        margin-bottom: 0 !important;
-        font-size: 2.2em !important;
-        line-height: 1.2 !important;
-        padding: 0 !important;
-        white-space: nowrap !important;
-        max-width: calc(100% - 300px) !important;
-        flex-shrink: 1 !important;
-        min-width: 0 !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-    }
-    
-    header {
-        padding: 20px 24px !important;
-        max-height: 180px !important;
-    }
-    
-    .stats {
-        margin-top: 8px !important;
-        margin-bottom: 8px !important;
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 8px !important;
-        min-height: 80px !important;
-        max-height: 90px !important;
-    }
-    
-    .stat {
-        padding: 8px 12px !important;
-        min-height: 76px !important;
-        max-height: 84px !important;
-        border-radius: 12px !important;
-    }
-    
-    .stat-value {
-        font-size: 1.5em !important;
-        margin-bottom: 4px !important;
-        line-height: 1.2 !important;
-    }
-    
-    .stat-label {
-        font-size: 1.1em !important;
-        line-height: 1.2 !important;
+        margin-bottom: 0;
+        font-size: 1.1em;
     }
     
     .user-selector-btn {
@@ -950,47 +754,25 @@ header h1 {
     }
     
     .stats {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 4px !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding: 0 !important;
-        justify-content: space-between !important;
-        align-items: stretch !important;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 0;
     }
     
     .stat {
-        flex: 1 !important;
-        padding: 4px 6px !important;
-        text-align: center !important;
-        border-radius: 6px !important;
-        min-height: auto !important;
-        margin: 0 !important;
-        border-width: 1px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
+        padding: 8px 10px;
+        text-align: center;
+        border-radius: 8px;
     }
     
     .stat-value {
-        font-size: 0.8em !important;
-        margin-bottom: 1px !important;
-        line-height: 1 !important;
-        letter-spacing: 0 !important;
-        padding: 0 !important;
-        font-weight: 600 !important;
-        display: block !important;
+        font-size: 1.1em !important;
+        margin-bottom: 2px;
     }
     
     .stat-label {
-        font-size: 0.55em !important;
-        margin-top: 1px !important;
-        line-height: 1 !important;
-        padding: 0 !important;
-        font-weight: 500 !important;
-        display: block !important;
+        font-size: 0.7em !important;
+        margin-top: 2px;
     }
     
     .categories {
