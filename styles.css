@@ -384,25 +384,20 @@ header h1 {
 }
 
 .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 16px;
-    width: 100%;
-}
-
-/* Mobile: riduci gap stats */
-@media (max-width: 767px) {
-    .stats {
-        gap: 8px !important;
-    }
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
 }
 
 /* Tablet e Desktop */
 @media (min-width: 768px) {
     .stats {
-        display: flex;
-        gap: 32px;
-        flex-wrap: wrap;
+        gap: 24px !important;
+        justify-content: flex-start !important;
+        flex-wrap: wrap !important;
     }
 }
 
