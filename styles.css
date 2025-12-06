@@ -407,15 +407,17 @@ header h1 {
 }
 
 .stat {
-    text-align: left;
+    text-align: center;
     position: relative;
-    padding: 12px 20px;
+    padding: 8px 12px;
     background: rgba(26, 26, 36, 0.8);
     border: 1px solid rgba(0, 243, 255, 0.3);
-    border-radius: 12px;
+    border-radius: 8px;
     transition: border-color 0.2s ease, transform 0.2s ease;
     will-change: transform;
     transform: translateZ(0);
+    flex: 1;
+    min-width: 0;
 }
 
 /* Mobile: riduci drasticamente le stat */
@@ -434,11 +436,12 @@ header h1 {
 .stat-value {
     display: block;
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(0.75em, 2.5vw, 1.75em);
+    font-size: clamp(0.7em, 2vw, 1.75em);
     font-weight: 700;
     color: var(--neon-cyan);
-    text-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
-    letter-spacing: clamp(0.5px, 0.3vw, 1px);
+    text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+    letter-spacing: 0;
+    line-height: 1.1;
 }
 
 /* Mobile: riduci font valore */
@@ -451,13 +454,13 @@ header h1 {
 
 .stat-label {
     display: block;
-    font-size: clamp(0.55em, 1.5vw, 0.85em);
+    font-size: clamp(0.5em, 1.2vw, 0.85em);
     color: rgba(255, 255, 255, 0.7);
     margin-top: 2px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: clamp(0.3px, 0.2vw, 1px);
-    line-height: 1.2;
+    letter-spacing: 0.3px;
+    line-height: 1.1;
 }
 
 /* Mobile: riduci font label */
@@ -795,19 +798,19 @@ header h1 {
     .stats {
         display: flex !important;
         flex-direction: row !important;
-        grid-template-columns: none !important;
-        gap: 2px !important;
+        gap: 4px !important;
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         padding: 0 !important;
         justify-content: space-between !important;
+        align-items: stretch !important;
     }
     
     .stat {
         flex: 1 !important;
-        padding: 2px 3px !important;
+        padding: 4px 6px !important;
         text-align: center !important;
-        border-radius: 4px !important;
+        border-radius: 6px !important;
         min-height: auto !important;
         margin: 0 !important;
         border-width: 1px !important;
@@ -818,8 +821,8 @@ header h1 {
     }
     
     .stat-value {
-        font-size: 0.65em !important;
-        margin-bottom: 0 !important;
+        font-size: 0.8em !important;
+        margin-bottom: 1px !important;
         line-height: 1 !important;
         letter-spacing: 0 !important;
         padding: 0 !important;
@@ -828,8 +831,8 @@ header h1 {
     }
     
     .stat-label {
-        font-size: 0.45em !important;
-        margin-top: 0 !important;
+        font-size: 0.55em !important;
+        margin-top: 1px !important;
         line-height: 1 !important;
         padding: 0 !important;
         font-weight: 500 !important;
