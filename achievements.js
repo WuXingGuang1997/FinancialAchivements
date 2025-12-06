@@ -1,6 +1,14 @@
-// Lista completa dei 50 achievement
+// Lista completa dei 50 achievement - ORDINATI DAL PIÙ FACILE AL PIÙ DIFFICILE
 const achievements = [
-    // CATEGORIA: GUADAGNI
+    // ========== COMMON (Più Facili) ==========
+    {
+        id: 21,
+        name: "Primo Acquisto",
+        description: "Acquista il tuo primo titolo",
+        category: "milestone",
+        icon: "🎯",
+        rarity: "common"
+    },
     {
         id: 1,
         name: "Primi Passi",
@@ -10,169 +18,11 @@ const achievements = [
         rarity: "common"
     },
     {
-        id: 2,
-        name: "Mille Euro",
-        description: "Guadagna 1.000€ da un singolo titolo",
-        category: "guadagni",
-        icon: "💵",
-        rarity: "common"
-    },
-    {
-        id: 3,
-        name: "$10k Master",
-        description: "Ottieni un guadagno cumulativo di €10.000 da un singolo titolo",
-        category: "guadagni",
-        icon: "💶",
-        rarity: "rare"
-    },
-    {
-        id: 4,
-        name: "Centomila",
-        description: "Guadagna 100.000€ da un singolo titolo",
-        category: "guadagni",
-        icon: "💸",
-        rarity: "epic"
-    },
-    {
-        id: 5,
-        name: "Portafoglio d'Oro",
-        description: "Raggiungi un guadagno totale di 50.000€",
-        category: "guadagni",
-        icon: "🏆",
-        rarity: "rare"
-    },
-    {
-        id: 6,
-        name: "Milionario",
-        description: "Raggiungi un guadagno totale di 1.000.000€",
-        category: "guadagni",
-        icon: "👑",
-        rarity: "legendary"
-    },
-    
-    // CATEGORIA: PERFORMANCE
-    {
-        id: 7,
-        name: "Primo 100%",
-        description: "Il tuo primo titolo raggiunge un +100% di rendimento dall'acquisto",
-        category: "performance",
-        icon: "📈",
-        rarity: "rare"
-    },
-    {
-        id: 8,
-        name: "Triplo",
-        description: "Primo stock che fa +200% (triplica)",
-        category: "performance",
-        icon: "🚀",
-        rarity: "epic"
-    },
-    {
-        id: 9,
-        name: "Decuplicato",
-        description: "Primo stock che fa +900% (10x)",
-        category: "performance",
-        icon: "🌟",
-        rarity: "legendary"
-    },
-    {
-        id: 10,
-        name: "Mese Perfetto",
-        description: "Guadagna almeno il 20% in un mese",
-        category: "performance",
-        icon: "📊",
-        rarity: "rare"
-    },
-    {
-        id: 11,
-        name: "The Double-Up",
-        description: "Raggiungi un +100% sul tuo portfolio totale, raddoppiando il capitale iniziale",
-        category: "performance",
-        icon: "🎯",
-        rarity: "epic"
-    },
-    {
-        id: 12,
-        name: "Portfolio Plus",
-        description: "Tutti i titoli in portafoglio in positivo",
-        category: "performance",
-        icon: "✅",
-        rarity: "rare"
-    },
-    {
-        id: 13,
-        name: "Recovery Master",
-        description: "Recupera una posizione da -50% a positivo",
-        category: "performance",
-        icon: "🔄",
-        rarity: "epic"
-    },
-    {
-        id: 14,
-        name: "Timing Perfetto",
-        description: "Vendi al massimo e ricompri al minimo dello stesso titolo",
-        category: "performance",
-        icon: "⏰",
-        rarity: "legendary"
-    },
-    
-    // CATEGORIA: DIVIDENDI
-    {
         id: 15,
         name: "Primo Dividendo",
         description: "Ricevi il tuo primo dividendo",
         category: "dividendi",
         icon: "💳",
-        rarity: "common"
-    },
-    {
-        id: 16,
-        name: "Dividendo d'Oro",
-        description: "Ricevi €1.000 in dividendi totali in un singolo anno solare",
-        category: "dividendi",
-        icon: "💴",
-        rarity: "rare"
-    },
-    {
-        id: 17,
-        name: "Diecimila Euro di Dividendi",
-        description: "Guadagna 10.000€ di dividendi in un anno",
-        category: "dividendi",
-        icon: "💷",
-        rarity: "epic"
-    },
-    {
-        id: 18,
-        name: "Dividend Aristocrat",
-        description: "Possiedi 10 titoli che pagano dividendi",
-        category: "dividendi",
-        icon: "👔",
-        rarity: "rare"
-    },
-    {
-        id: 19,
-        name: "Rendimento Passivo",
-        description: "Ricevi dividendi da almeno 5 titoli diversi in un trimestre",
-        category: "dividendi",
-        icon: "💼",
-        rarity: "rare"
-    },
-    {
-        id: 20,
-        name: "Cash Flow King",
-        description: "Ricevi dividendi mensili per 12 mesi consecutivi",
-        category: "dividendi",
-        icon: "👑",
-        rarity: "epic"
-    },
-    
-    // CATEGORIA: MILESTONE
-    {
-        id: 21,
-        name: "Primo Acquisto",
-        description: "Acquista il tuo primo titolo",
-        category: "milestone",
-        icon: "🎯",
         rarity: "common"
     },
     {
@@ -184,109 +34,11 @@ const achievements = [
         rarity: "common"
     },
     {
-        id: 23,
-        name: "Diversificatore",
-        description: "Possiedi titoli in almeno 5 settori diversi",
-        category: "milestone",
-        icon: "🌍",
-        rarity: "rare"
-    },
-    {
-        id: 24,
-        name: "Investitore Globale",
-        description: "Possiedi titoli di almeno 3 continenti diversi",
-        category: "milestone",
-        icon: "🌎",
-        rarity: "rare"
-    },
-    {
-        id: 25,
-        name: "Anno di Trading",
-        description: "Investi attivamente per 1 anno",
-        category: "milestone",
-        icon: "📅",
-        rarity: "common"
-    },
-    {
-        id: 26,
-        name: "Veterano",
-        description: "Investi attivamente per 5 anni",
-        category: "milestone",
-        icon: "🎖️",
-        rarity: "epic"
-    },
-    {
-        id: 27,
-        name: "Maestro",
-        description: "Investi attivamente per 10 anni",
-        category: "milestone",
-        icon: "🏅",
-        rarity: "legendary"
-    },
-    {
-        id: 28,
-        name: "Cento Operazioni",
-        description: "Esegui 100 operazioni di trading",
-        category: "milestone",
-        icon: "📝",
-        rarity: "rare"
-    },
-    {
-        id: 29,
-        name: "Mille Operazioni",
-        description: "Esegui 1.000 operazioni di trading",
-        category: "milestone",
-        icon: "📋",
-        rarity: "epic"
-    },
-    {
-        id: 30,
-        name: "La Cifra Tonda",
-        description: "Raggiungi un patrimonio investito totale (capitale proprio + profitti) di €100.000",
-        category: "milestone",
-        icon: "💎",
-        rarity: "rare"
-    },
-    {
-        id: 31,
-        name: "Portfolio Millionaire",
-        description: "Raggiungi un valore di portafoglio di 1.000.000€",
-        category: "milestone",
-        icon: "💍",
-        rarity: "legendary"
-    },
-    
-    // CATEGORIA: STRATEGIA
-    {
         id: 32,
         name: "Buy and Hold",
         description: "Mantieni un titolo per almeno 2 anni",
         category: "strategia",
         icon: "🤲",
-        rarity: "common"
-    },
-    {
-        id: 33,
-        name: "Long Term Investor",
-        description: "Mantieni un titolo per almeno 5 anni",
-        category: "strategia",
-        icon: "⏳",
-        rarity: "rare"
-    },
-    {
-        id: 34,
-        name: "Day Trader",
-        description: "Esegui almeno 10 operazioni in un giorno",
-        category: "strategia",
-        icon: "⚡",
-        rarity: "rare"
-    },
-    {
-        id: 35,
-        name: "Swing Trader",
-        description: "Guadagna da almeno 5 operazioni swing",
-        category: "strategia",
-        icon: "🎢",
         rarity: "common"
     },
     {
@@ -296,22 +48,6 @@ const achievements = [
         category: "strategia",
         icon: "🔍",
         rarity: "common"
-    },
-    {
-        id: 37,
-        name: "Growth Investor",
-        description: "Acquista un titolo con crescita ricavi >30% annua",
-        category: "strategia",
-        icon: "🌱",
-        rarity: "rare"
-    },
-    {
-        id: 38,
-        name: "Dollar Cost Averaging",
-        description: "Investi lo stesso importo mensile per 12 mesi",
-        category: "strategia",
-        icon: "📊",
-        rarity: "rare"
     },
     {
         id: 39,
@@ -330,44 +66,12 @@ const achievements = [
         rarity: "common"
     },
     {
-        id: 41,
-        name: "Rebalancing",
-        description: "Ribilanci il portafoglio almeno 4 volte in un anno",
+        id: 35,
+        name: "Swing Trader",
+        description: "Guadagna da almeno 5 operazioni swing",
         category: "strategia",
-        icon: "⚖️",
-        rarity: "rare"
-    },
-    {
-        id: 42,
-        name: "Settore Expert",
-        description: "Diventa esperto investendo in un settore specifico",
-        category: "strategia",
-        icon: "🎓",
-        rarity: "epic"
-    },
-    {
-        id: 43,
-        name: "IPO Hunter",
-        description: "Partecipa ad almeno 3 IPO",
-        category: "strategia",
-        icon: "🔬",
-        rarity: "epic"
-    },
-    {
-        id: 44,
-        name: "Short Seller",
-        description: "Guadagna da almeno una posizione short",
-        category: "strategia",
-        icon: "📉",
-        rarity: "rare"
-    },
-    {
-        id: 45,
-        name: "Options Trader",
-        description: "Esegui almeno 5 operazioni con opzioni",
-        category: "strategia",
-        icon: "📜",
-        rarity: "epic"
+        icon: "🎢",
+        rarity: "common"
     },
     {
         id: 46,
@@ -386,12 +90,150 @@ const achievements = [
         rarity: "common"
     },
     {
-        id: 48,
-        name: "Risk Manager",
-        description: "Mantieni un portafoglio con rischio controllato per 1 anno",
+        id: 25,
+        name: "Anno di Trading",
+        description: "Investi attivamente per 1 anno",
+        category: "milestone",
+        icon: "📅",
+        rarity: "common"
+    },
+    {
+        id: 2,
+        name: "Mille Euro",
+        description: "Guadagna 1.000€ da un singolo titolo",
+        category: "guadagni",
+        icon: "💵",
+        rarity: "common"
+    },
+    
+    // ========== RARE (Medi) ==========
+    {
+        id: 23,
+        name: "Diversificatore",
+        description: "Possiedi titoli in almeno 5 settori diversi",
+        category: "milestone",
+        icon: "🌍",
+        rarity: "rare"
+    },
+    {
+        id: 24,
+        name: "Investitore Globale",
+        description: "Possiedi titoli di almeno 3 continenti diversi",
+        category: "milestone",
+        icon: "🌎",
+        rarity: "rare"
+    },
+    {
+        id: 3,
+        name: "$10k Master",
+        description: "Ottieni un guadagno cumulativo di €10.000 da un singolo titolo",
+        category: "guadagni",
+        icon: "💶",
+        rarity: "rare"
+    },
+    {
+        id: 5,
+        name: "Portafoglio d'Oro",
+        description: "Raggiungi un guadagno totale di 50.000€",
+        category: "guadagni",
+        icon: "🏆",
+        rarity: "rare"
+    },
+    {
+        id: 7,
+        name: "Primo 100%",
+        description: "Il tuo primo titolo raggiunge un +100% di rendimento dall'acquisto",
+        category: "performance",
+        icon: "📈",
+        rarity: "rare"
+    },
+    {
+        id: 10,
+        name: "Mese Perfetto",
+        description: "Guadagna almeno il 20% in un mese",
+        category: "performance",
+        icon: "📊",
+        rarity: "rare"
+    },
+    {
+        id: 12,
+        name: "Portfolio Plus",
+        description: "Tutti i titoli in portafoglio in positivo",
+        category: "performance",
+        icon: "✅",
+        rarity: "rare"
+    },
+    {
+        id: 18,
+        name: "Dividend Aristocrat",
+        description: "Possiedi 10 titoli che pagano dividendi",
+        category: "dividendi",
+        icon: "👔",
+        rarity: "rare"
+    },
+    {
+        id: 19,
+        name: "Rendimento Passivo",
+        description: "Ricevi dividendi da almeno 5 titoli diversi in un trimestre",
+        category: "dividendi",
+        icon: "💼",
+        rarity: "rare"
+    },
+    {
+        id: 16,
+        name: "Dividendo d'Oro",
+        description: "Ricevi €1.000 in dividendi totali in un singolo anno solare",
+        category: "dividendi",
+        icon: "💴",
+        rarity: "rare"
+    },
+    {
+        id: 33,
+        name: "Long Term Investor",
+        description: "Mantieni un titolo per almeno 5 anni",
         category: "strategia",
-        icon: "🎲",
-        rarity: "epic"
+        icon: "⏳",
+        rarity: "rare"
+    },
+    {
+        id: 34,
+        name: "Day Trader",
+        description: "Esegui almeno 10 operazioni in un giorno",
+        category: "strategia",
+        icon: "⚡",
+        rarity: "rare"
+    },
+    {
+        id: 37,
+        name: "Growth Investor",
+        description: "Acquista un titolo con crescita ricavi >30% annua",
+        category: "strategia",
+        icon: "🌱",
+        rarity: "rare"
+    },
+    {
+        id: 38,
+        name: "Dollar Cost Averaging",
+        description: "Investi lo stesso importo mensile per 12 mesi",
+        category: "strategia",
+        icon: "📊",
+        rarity: "rare"
+    },
+    {
+        id: 41,
+        name: "Rebalancing",
+        description: "Ribilanci il portafoglio almeno 4 volte in un anno",
+        category: "strategia",
+        icon: "⚖️",
+        rarity: "rare"
+    },
+    {
+        id: 44,
+        name: "Short Seller",
+        description: "Guadagna da almeno una posizione short",
+        category: "strategia",
+        icon: "📉",
+        rarity: "rare"
     },
     {
         id: 49,
@@ -400,6 +242,162 @@ const achievements = [
         category: "strategia",
         icon: "📑",
         rarity: "rare"
+    },
+    {
+        id: 28,
+        name: "Cento Operazioni",
+        description: "Esegui 100 operazioni di trading",
+        category: "milestone",
+        icon: "📝",
+        rarity: "rare"
+    },
+    {
+        id: 30,
+        name: "La Cifra Tonda",
+        description: "Raggiungi un patrimonio investito totale (capitale proprio + profitti) di €100.000",
+        category: "milestone",
+        icon: "💎",
+        rarity: "rare"
+    },
+    
+    // ========== EPIC (Difficili) ==========
+    {
+        id: 4,
+        name: "Centomila",
+        description: "Guadagna 100.000€ da un singolo titolo",
+        category: "guadagni",
+        icon: "💸",
+        rarity: "epic"
+    },
+    {
+        id: 8,
+        name: "Triplo",
+        description: "Primo stock che fa +200% (triplica)",
+        category: "performance",
+        icon: "🚀",
+        rarity: "epic"
+    },
+    {
+        id: 11,
+        name: "The Double-Up",
+        description: "Raggiungi un +100% sul tuo portfolio totale, raddoppiando il capitale iniziale",
+        category: "performance",
+        icon: "🎯",
+        rarity: "epic"
+    },
+    {
+        id: 13,
+        name: "Recovery Master",
+        description: "Recupera una posizione da -50% a positivo",
+        category: "performance",
+        icon: "🔄",
+        rarity: "epic"
+    },
+    {
+        id: 17,
+        name: "Diecimila Euro di Dividendi",
+        description: "Guadagna 10.000€ di dividendi in un anno",
+        category: "dividendi",
+        icon: "💷",
+        rarity: "epic"
+    },
+    {
+        id: 20,
+        name: "Cash Flow King",
+        description: "Ricevi dividendi mensili per 12 mesi consecutivi",
+        category: "dividendi",
+        icon: "👑",
+        rarity: "epic"
+    },
+    {
+        id: 26,
+        name: "Veterano",
+        description: "Investi attivamente per 5 anni",
+        category: "milestone",
+        icon: "🎖️",
+        rarity: "epic"
+    },
+    {
+        id: 29,
+        name: "Mille Operazioni",
+        description: "Esegui 1.000 operazioni di trading",
+        category: "milestone",
+        icon: "📋",
+        rarity: "epic"
+    },
+    {
+        id: 42,
+        name: "Settore Expert",
+        description: "Diventa esperto investendo in un settore specifico",
+        category: "strategia",
+        icon: "🎓",
+        rarity: "epic"
+    },
+    {
+        id: 43,
+        name: "IPO Hunter",
+        description: "Partecipa ad almeno 3 IPO",
+        category: "strategia",
+        icon: "🔬",
+        rarity: "epic"
+    },
+    {
+        id: 45,
+        name: "Options Trader",
+        description: "Esegui almeno 5 operazioni con opzioni",
+        category: "strategia",
+        icon: "📜",
+        rarity: "epic"
+    },
+    {
+        id: 48,
+        name: "Risk Manager",
+        description: "Mantieni un portafoglio con rischio controllato per 1 anno",
+        category: "strategia",
+        icon: "🎲",
+        rarity: "epic"
+    },
+    
+    // ========== LEGENDARY (Molto Difficili) ==========
+    {
+        id: 6,
+        name: "Milionario",
+        description: "Raggiungi un guadagno totale di 1.000.000€",
+        category: "guadagni",
+        icon: "👑",
+        rarity: "legendary"
+    },
+    {
+        id: 9,
+        name: "Decuplicato",
+        description: "Primo stock che fa +900% (10x)",
+        category: "performance",
+        icon: "🌟",
+        rarity: "legendary"
+    },
+    {
+        id: 14,
+        name: "Timing Perfetto",
+        description: "Vendi al massimo e ricompri al minimo dello stesso titolo",
+        category: "performance",
+        icon: "⏰",
+        rarity: "legendary"
+    },
+    {
+        id: 27,
+        name: "Maestro",
+        description: "Investi attivamente per 10 anni",
+        category: "milestone",
+        icon: "🏅",
+        rarity: "legendary"
+    },
+    {
+        id: 31,
+        name: "Portfolio Millionaire",
+        description: "Raggiungi un valore di portafoglio di 1.000.000€",
+        category: "milestone",
+        icon: "💍",
+        rarity: "legendary"
     },
     {
         id: 50,
