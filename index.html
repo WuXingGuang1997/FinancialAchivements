@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>Achievements Investitore Retail | Futuristic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>🔐 Accesso Sicuro</h1>
+                <p>Gestisci i tuoi achievement in sicurezza</p>
+            </div>
+            <div class="login-tabs">
+                <button class="login-tab active" data-tab="login">Accedi</button>
+                <button class="login-tab" data-tab="register">Registrati</button>
+            </div>
+            
+            <!-- Form Login -->
+            <form class="login-form active" id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">Nome Utente</label>
+                    <input type="text" id="loginUsername" placeholder="Inserisci il tuo nome utente" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Inserisci la tua password" required autocomplete="current-password">
+                    <button type="button" class="toggle-password" data-target="loginPassword">👁️</button>
+                </div>
+                <button type="submit" class="btn-login">Accedi</button>
+                <div class="login-error" id="loginError"></div>
+            </form>
+            
+            <!-- Form Registrazione -->
+            <form class="login-form" id="registerForm">
+                <div class="form-group">
+                    <label for="registerUsername">Nome Utente</label>
+                    <input type="text" id="registerUsername" placeholder="Scegli un nome utente" required autocomplete="username" minlength="3" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" placeholder="Scegli una password sicura" required autocomplete="new-password" minlength="6">
+                    <button type="button" class="toggle-password" data-target="registerPassword">👁️</button>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Conferma Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Conferma la password" required autocomplete="new-password" minlength="6">
+                    <button type="button" class="toggle-password" data-target="confirmPassword">👁️</button>
+                </div>
+                <button type="submit" class="btn-login">Registrati</button>
+                <div class="login-error" id="registerError"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" id="mainContainer" style="display: none;">
+        <header>
+            <div class="header-top">
+                <h1>50 Achievement per Investitori Retail</h1>
+                <div class="header-actions">
+                    <button class="user-selector-btn" id="userSelectorBtn" title="Gestisci utenti">
+                        <span id="currentUserName">Utente</span>
+                        <span class="user-icon">👤</span>
+                    </button>
+                    <button class="logout-btn" id="logoutBtn" title="Esci">
+                        🚪
+                    </button>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-value" id="completed">0</span>
+                    <span class="stat-label">Completati</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="total">50</span>
+                    <span class="stat-label">Totali</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="percentage">0%</span>
+                    <span class="stat-label">Progresso</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Modal Gestione Utenti -->
+        <div class="modal-overlay" id="userModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>👤 Il Tuo Profilo</h2>
+                    <button class="modal-close" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="user-info-section">
+                        <p class="info-text">🔒 Puoi vedere solo i tuoi achievement personali</p>
+                        <p class="info-subtext">I tuoi dati sono privati e visibili solo a te</p>
+                    </div>
+                    <div class="users-list" id="usersList">
+                        <!-- Lista utente corrente verrà generata dinamicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="all">Tutti</button>
+            <button class="category-btn" data-category="guadagni">Guadagni</button>
+            <button class="category-btn" data-category="performance">Performance</button>
+            <button class="category-btn" data-category="dividendi">Dividendi</button>
+            <button class="category-btn" data-category="milestone">Milestone</button>
+            <button class="category-btn" data-category="strategia">Strategia</button>
+        </div>
+
+        <div class="achievements-grid" id="achievementsGrid">
+            <!-- Achievement verranno generati dinamicamente -->
+        </div>
+    </div>
+
+    <script src="achievements.js"></script>
+    <script src="auth.js"></script>
+    <script src="users.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
