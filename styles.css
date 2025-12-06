@@ -839,8 +839,8 @@ header h1 {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 8px !important;
-        margin-bottom: 8px !important;
+        gap: 4px !important;
+        margin-bottom: 4px !important;
     }
     
     .header-actions {
@@ -852,12 +852,12 @@ header h1 {
     }
     
     .user-selector-btn {
-        padding: 4px 8px !important;
-        font-size: 0.7em !important;
-        gap: 4px !important;
+        padding: 3px 6px !important;
+        font-size: 0.65em !important;
+        gap: 3px !important;
         flex-shrink: 1 !important;
         min-width: 0 !important;
-        max-width: 120px !important;
+        max-width: 100px !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         white-space: nowrap !important;
@@ -867,21 +867,28 @@ header h1 {
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         white-space: nowrap !important;
+        font-size: 0.9em !important;
+    }
+    
+    .user-selector-btn .user-icon {
+        font-size: 0.9em !important;
     }
     
     .logout-btn {
-        padding: 4px 8px !important;
-        font-size: 0.9em !important;
+        padding: 3px 6px !important;
+        font-size: 0.8em !important;
         flex-shrink: 0 !important;
-        min-width: 32px !important;
+        min-width: 28px !important;
         width: auto !important;
     }
     
     header h1 {
-        margin-bottom: 4px !important;
-        font-size: 1.2em !important;
-        line-height: 1.2 !important;
+        margin-bottom: 0 !important;
+        font-size: 0.85em !important;
+        line-height: 1.1 !important;
         padding: 0 !important;
+        white-space: nowrap !important;
+        max-width: calc(100% - 140px) !important;
         flex-shrink: 1 !important;
         min-width: 0 !important;
         overflow: hidden !important;
@@ -889,8 +896,8 @@ header h1 {
     }
     
     header {
-        padding: 12px 16px !important;
-        max-height: 160px !important;
+        padding: 6px 8px !important;
+        max-height: 70px !important;
     }
     
     .stats {
