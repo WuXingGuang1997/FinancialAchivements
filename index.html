@@ -8,22 +8,22 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Achievements Investitore Retail | Futuristic</title>
-    <link rel="stylesheet" href="styles.css?v=18.0">
+    <link rel="stylesheet" href="styles.css?v=19.0">
     <style>
     /* Override forzato inline per mobile - MINIMO ASSOLUTO */
     @media screen and (max-width: 767px) {
         header {
-            padding: 10px 12px !important;
+            padding: 20px 24px !important;
             min-height: auto !important;
-            max-height: 90px !important;
+            max-height: 180px !important;
         }
         .header-top {
-            margin-bottom: 6px !important;
-            gap: 8px !important;
+            margin-bottom: 12px !important;
+            gap: 16px !important;
             align-items: center !important;
         }
         header h1 {
-            font-size: 1.1em !important;
+            font-size: 2.2em !important;
             margin-bottom: 0 !important;
             line-height: 1.2 !important;
             padding: 0 !important;
@@ -32,21 +32,21 @@
             overflow: hidden !important;
             text-overflow: ellipsis !important;
             white-space: nowrap !important;
-            max-width: calc(100% - 150px) !important;
+            max-width: calc(100% - 300px) !important;
         }
         .header-actions {
-            gap: 6px !important;
+            gap: 12px !important;
             flex-shrink: 0 !important;
             min-width: 0 !important;
-            padding-right: 4px !important;
+            padding-right: 8px !important;
         }
         .user-selector-btn {
-            padding: 6px 10px !important;
-            font-size: 0.8em !important;
-            gap: 4px !important;
+            padding: 12px 20px !important;
+            font-size: 1.6em !important;
+            gap: 8px !important;
             flex-shrink: 1 !important;
             min-width: 0 !important;
-            max-width: 110px !important;
+            max-width: 220px !important;
             overflow: hidden !important;
             text-overflow: ellipsis !important;
             white-space: nowrap !important;
@@ -55,16 +55,16 @@
             overflow: hidden !important;
             text-overflow: ellipsis !important;
             white-space: nowrap !important;
-            font-size: 1em !important;
+            font-size: 2em !important;
         }
         .user-selector-btn .user-icon {
-            font-size: 1em !important;
+            font-size: 2em !important;
         }
         .logout-btn {
-            padding: 6px 10px !important;
-            font-size: 1em !important;
+            padding: 12px 20px !important;
+            font-size: 2em !important;
             flex-shrink: 0 !important;
-            min-width: 36px !important;
+            min-width: 72px !important;
             width: auto !important;
         }
         .stats {
@@ -272,42 +272,42 @@
                 // Riduci anche header
                 const header = document.querySelector('header');
                 if (header) {
-                    header.style.cssText += 'padding: 10px 12px !important; min-height: auto !important; max-height: 90px !important;';
+                    header.style.cssText += 'padding: 20px 24px !important; min-height: auto !important; max-height: 180px !important;';
                 }
                 
                 const headerH1 = document.querySelector('header h1');
                 if (headerH1) {
-                    headerH1.style.cssText += 'font-size: 1.1em !important; margin-bottom: 0 !important; line-height: 1.2 !important; flex-shrink: 1 !important; min-width: 0 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; max-width: calc(100% - 150px) !important;';
+                    headerH1.style.cssText += 'font-size: 2.2em !important; margin-bottom: 0 !important; line-height: 1.2 !important; flex-shrink: 1 !important; min-width: 0 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; max-width: calc(100% - 300px) !important;';
                 }
                 
                 // Forza header-actions a destra e compattezza
                 const headerActions = document.querySelector('.header-actions');
                 if (headerActions) {
-                    headerActions.style.cssText += 'margin-left: auto !important; flex-direction: row !important; gap: 6px !important; display: flex !important; align-items: center !important; flex-shrink: 0 !important; min-width: 0 !important; padding-right: 4px !important;';
+                    headerActions.style.cssText += 'margin-left: auto !important; flex-direction: row !important; gap: 12px !important; display: flex !important; align-items: center !important; flex-shrink: 0 !important; min-width: 0 !important; padding-right: 8px !important;';
                 }
                 
                 const headerTop = document.querySelector('.header-top');
                 if (headerTop) {
-                    headerTop.style.cssText += 'flex-direction: row !important; justify-content: space-between !important; align-items: center !important; overflow: hidden !important; margin-bottom: 6px !important; gap: 8px !important;';
+                    headerTop.style.cssText += 'flex-direction: row !important; justify-content: space-between !important; align-items: center !important; overflow: hidden !important; margin-bottom: 12px !important; gap: 16px !important;';
                 }
                 
                 // Riduci pulsanti su mobile
                 const userSelectorBtn = document.querySelector('.user-selector-btn');
                 if (userSelectorBtn) {
-                    userSelectorBtn.style.cssText += 'padding: 6px 10px !important; font-size: 0.8em !important; gap: 4px !important; flex-shrink: 1 !important; min-width: 0 !important; max-width: 110px !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important;';
+                    userSelectorBtn.style.cssText += 'padding: 12px 20px !important; font-size: 1.6em !important; gap: 8px !important; flex-shrink: 1 !important; min-width: 0 !important; max-width: 220px !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important;';
                     const spans = userSelectorBtn.querySelectorAll('span');
                     spans.forEach(span => {
-                        span.style.cssText += 'overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; font-size: 1em !important;';
+                        span.style.cssText += 'overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; font-size: 2em !important;';
                     });
                     const icon = userSelectorBtn.querySelector('.user-icon');
                     if (icon) {
-                        icon.style.cssText += 'font-size: 1em !important;';
+                        icon.style.cssText += 'font-size: 2em !important;';
                     }
                 }
                 
                 const logoutBtn = document.querySelector('.logout-btn');
                 if (logoutBtn) {
-                    logoutBtn.style.cssText += 'padding: 6px 10px !important; font-size: 1em !important; flex-shrink: 0 !important; min-width: 36px !important; width: auto !important;';
+                    logoutBtn.style.cssText += 'padding: 12px 20px !important; font-size: 2em !important; flex-shrink: 0 !important; min-width: 72px !important; width: auto !important;';
                 }
             }
         }
