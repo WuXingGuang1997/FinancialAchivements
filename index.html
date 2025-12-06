@@ -239,6 +239,17 @@
                 if (headerH1) {
                     headerH1.style.cssText += 'font-size: 0.6em !important; margin-bottom: 1px !important; line-height: 0.9 !important;';
                 }
+                
+                // Forza header-actions a destra
+                const headerActions = document.querySelector('.header-actions');
+                if (headerActions) {
+                    headerActions.style.cssText += 'margin-left: auto !important; flex-direction: row !important; gap: 6px !important; display: flex !important; align-items: center !important;';
+                }
+                
+                const headerTop = document.querySelector('.header-top');
+                if (headerTop) {
+                    headerTop.style.cssText += 'flex-direction: row !important; justify-content: space-between !important; align-items: center !important;';
+                }
             }
         }
         
