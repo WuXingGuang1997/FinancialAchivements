@@ -208,8 +208,10 @@ body {
 
 .header-actions {
     display: flex;
+    flex-direction: row;
     gap: 12px;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
 .logout-btn {
@@ -734,10 +736,22 @@ header h1 {
     }
     
     .user-selector-btn {
-        width: 100%;
+        width: auto;
+        flex: 0 0 auto;
         justify-content: center;
         padding: 8px 12px;
         font-size: 0.85em;
+    }
+    
+    .header-actions {
+        flex-direction: row !important;
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+    
+    .logout-btn {
+        width: auto !important;
+        flex: 0 0 auto;
     }
     
     .modal-content {
