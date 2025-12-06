@@ -390,6 +390,13 @@ header h1 {
     width: 100%;
 }
 
+/* Mobile: riduci gap stats */
+@media (max-width: 767px) {
+    .stats {
+        gap: 8px !important;
+    }
+}
+
 /* Tablet e Desktop */
 @media (min-width: 768px) {
     .stats {
@@ -411,6 +418,14 @@ header h1 {
     transform: translateZ(0);
 }
 
+/* Mobile: riduci drasticamente le stat */
+@media (max-width: 767px) {
+    .stat {
+        padding: 6px 10px !important;
+        border-radius: 8px !important;
+    }
+}
+
 .stat:hover {
     border-color: var(--neon-cyan);
     transform: translateY(-2px) translateZ(0);
@@ -419,22 +434,38 @@ header h1 {
 .stat-value {
     display: block;
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(0.9em, 3vw, 1.75em);
+    font-size: clamp(0.75em, 2.5vw, 1.75em);
     font-weight: 700;
     color: var(--neon-cyan);
     text-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
     letter-spacing: clamp(0.5px, 0.3vw, 1px);
 }
 
+/* Mobile: riduci font valore */
+@media (max-width: 767px) {
+    .stat-value {
+        font-size: clamp(0.7em, 2vw, 1em) !important;
+        text-shadow: 0 0 5px rgba(0, 243, 255, 0.6);
+    }
+}
+
 .stat-label {
     display: block;
-    font-size: clamp(0.65em, 2vw, 0.85em);
+    font-size: clamp(0.55em, 1.5vw, 0.85em);
     color: rgba(255, 255, 255, 0.7);
     margin-top: 2px;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: clamp(0.3px, 0.2vw, 1px);
     line-height: 1.2;
+}
+
+/* Mobile: riduci font label */
+@media (max-width: 767px) {
+    .stat-label {
+        font-size: clamp(0.5em, 1.5vw, 0.7em) !important;
+        margin-top: 1px !important;
+    }
 }
 
 .categories {
@@ -719,21 +750,25 @@ header h1 {
 /* Mobile Small (max 480px) */
 @media (max-width: 480px) {
     header {
-        padding: 8px 10px !important;
+        padding: 6px 8px !important;
     }
     
     .header-top {
         flex-direction: column;
         align-items: flex-start;
-        gap: 6px !important;
-        margin-bottom: 6px !important;
+        gap: 4px !important;
+        margin-bottom: 4px !important;
     }
     
     header h1 {
         margin-bottom: 0 !important;
-        font-size: 0.9em !important;
-        line-height: 1.1 !important;
+        font-size: 0.85em !important;
+        line-height: 1 !important;
         padding: 0 !important;
+    }
+    
+    .stats {
+        margin-top: 4px !important;
     }
     
     .user-selector-btn {
@@ -758,33 +793,36 @@ header h1 {
     
     .stats {
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 4px !important;
+        gap: 3px !important;
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         padding: 0 !important;
     }
     
     .stat {
-        padding: 4px 6px !important;
+        padding: 3px 4px !important;
         text-align: center !important;
-        border-radius: 6px !important;
+        border-radius: 4px !important;
         min-height: auto !important;
         margin: 0 !important;
+        border-width: 1px !important;
     }
     
     .stat-value {
-        font-size: 0.85em !important;
+        font-size: 0.75em !important;
         margin-bottom: 0 !important;
-        line-height: 1.1 !important;
+        line-height: 1 !important;
         letter-spacing: 0 !important;
         padding: 0 !important;
+        font-weight: 600 !important;
     }
     
     .stat-label {
-        font-size: 0.6em !important;
+        font-size: 0.55em !important;
         margin-top: 0 !important;
-        line-height: 1.1 !important;
+        line-height: 1 !important;
         padding: 0 !important;
+        font-weight: 500 !important;
     }
     
     .categories {
