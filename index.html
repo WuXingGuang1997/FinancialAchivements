@@ -8,7 +8,41 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Achievements Investitore Retail | Futuristic</title>
-    <link rel="stylesheet" href="styles.css?v=5.0">
+    <link rel="stylesheet" href="styles.css?v=6.0">
+    <style>
+    /* Override forzato inline per mobile - garantisce applicazione */
+    @media (max-width: 767px) {
+        .stats {
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 4px !important;
+            justify-content: space-between !important;
+            align-items: stretch !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .stat {
+            flex: 1 !important;
+            padding: 4px 6px !important;
+            text-align: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin: 0 !important;
+        }
+        .stat-value {
+            font-size: 0.75em !important;
+            margin-bottom: 1px !important;
+            line-height: 1 !important;
+        }
+        .stat-label {
+            font-size: 0.55em !important;
+            margin-top: 1px !important;
+            line-height: 1 !important;
+        }
+    }
+    </style>
 </head>
 <body>
     <!-- Login Screen -->
