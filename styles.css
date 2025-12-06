@@ -242,12 +242,12 @@ body {
     }
     
     .header-actions {
-        flex-direction: column;
+        flex-direction: row;
         gap: 8px;
     }
     
     .logout-btn {
-        width: 100%;
+        width: auto;
     }
 }
 
