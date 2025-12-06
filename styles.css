@@ -839,25 +839,26 @@ header h1 {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 4px !important;
-        margin-bottom: 4px !important;
+        gap: 3px !important;
+        margin-bottom: 2px !important;
     }
     
     .header-actions {
         margin-left: auto !important;
         flex-direction: row !important;
-        gap: 4px !important;
+        gap: 3px !important;
         flex-shrink: 0 !important;
         min-width: 0 !important;
+        padding-right: 2px !important;
     }
     
     .user-selector-btn {
-        padding: 3px 6px !important;
-        font-size: 0.65em !important;
-        gap: 3px !important;
+        padding: 2px 5px !important;
+        font-size: 0.6em !important;
+        gap: 2px !important;
         flex-shrink: 1 !important;
         min-width: 0 !important;
-        max-width: 100px !important;
+        max-width: 85px !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         white-space: nowrap !important;
@@ -867,28 +868,28 @@ header h1 {
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         white-space: nowrap !important;
-        font-size: 0.9em !important;
+        font-size: 0.85em !important;
     }
     
     .user-selector-btn .user-icon {
-        font-size: 0.9em !important;
+        font-size: 0.85em !important;
     }
     
     .logout-btn {
-        padding: 3px 6px !important;
-        font-size: 0.8em !important;
+        padding: 2px 5px !important;
+        font-size: 0.75em !important;
         flex-shrink: 0 !important;
-        min-width: 28px !important;
+        min-width: 26px !important;
         width: auto !important;
     }
     
     header h1 {
         margin-bottom: 0 !important;
-        font-size: 0.85em !important;
-        line-height: 1.1 !important;
+        font-size: 0.75em !important;
+        line-height: 1 !important;
         padding: 0 !important;
         white-space: nowrap !important;
-        max-width: calc(100% - 140px) !important;
+        max-width: calc(100% - 120px) !important;
         flex-shrink: 1 !important;
         min-width: 0 !important;
         overflow: hidden !important;
@@ -896,8 +897,8 @@ header h1 {
     }
     
     header {
-        padding: 6px 8px !important;
-        max-height: 70px !important;
+        padding: 4px 6px !important;
+        max-height: 50px !important;
     }
     
     .stats {
