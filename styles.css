@@ -242,12 +242,13 @@ body {
     }
     
     .header-actions {
-        flex-direction: column;
+        flex-direction: row;
         gap: 8px;
+        margin-left: auto;
     }
     
     .logout-btn {
-        width: 100%;
+        width: auto;
     }
 }
 
@@ -335,6 +336,7 @@ header {
     margin-bottom: 20px;
     gap: 16px;
 }
+
 
 header h1 {
     font-family: 'Orbitron', sans-serif;
@@ -834,10 +836,17 @@ header h1 {
     }
     
     .header-top {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         gap: 3px !important;
         margin-bottom: 3px !important;
+    }
+    
+    .header-actions {
+        margin-left: auto !important;
+        flex-direction: row !important;
+        gap: 6px !important;
     }
     
     header h1 {
