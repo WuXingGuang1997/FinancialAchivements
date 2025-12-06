@@ -8,24 +8,38 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Achievements Investitore Retail | Futuristic</title>
-    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link rel="stylesheet" href="styles.css?v=9.0">
     <style>
-    /* Override forzato inline per mobile - garantisce applicazione */
-    /* iPhone 12 e tutti i mobile */
-    @media screen and (max-width: 767px), screen and (max-width: 430px), screen and (max-width: 390px) {
+    /* Override forzato inline per mobile - ULTRA COMPATTO */
+    @media screen and (max-width: 767px) {
+        header {
+            padding: 2px 4px !important;
+            min-height: auto !important;
+        }
+        .header-top {
+            margin-bottom: 2px !important;
+            gap: 2px !important;
+        }
+        header h1 {
+            font-size: 0.7em !important;
+            margin-bottom: 2px !important;
+            line-height: 1 !important;
+        }
         .stats {
             display: flex !important;
             flex-direction: row !important;
-            gap: 3px !important;
+            gap: 2px !important;
             justify-content: space-between !important;
             align-items: stretch !important;
             margin: 0 !important;
             padding: 0 !important;
             width: 100% !important;
+            min-height: auto !important;
+            height: auto !important;
         }
         .stat {
             flex: 1 1 0% !important;
-            padding: 3px 4px !important;
+            padding: 2px 3px !important;
             text-align: center !important;
             display: flex !important;
             flex-direction: column !important;
@@ -34,45 +48,46 @@
             margin: 0 !important;
             min-width: 0 !important;
             max-width: none !important;
+            min-height: auto !important;
+            height: auto !important;
+            border-radius: 4px !important;
         }
         .stat-value {
-            font-size: 0.7em !important;
+            font-size: 0.6em !important;
             margin-bottom: 0 !important;
-            line-height: 1 !important;
+            line-height: 0.9 !important;
             padding: 0 !important;
-        }
-        .stat-label {
-            font-size: 0.5em !important;
-            margin-top: 0 !important;
-            line-height: 1 !important;
-            padding: 0 !important;
-        }
-    }
-    /* Specifico per iPhone 12 (390px) */
-    @media screen and (max-width: 390px) {
-        header {
-            padding: 4px 6px !important;
-        }
-        .header-top {
-            margin-bottom: 2px !important;
-            gap: 2px !important;
-        }
-        header h1 {
-            font-size: 0.75em !important;
-        }
-        .stats {
-            gap: 2px !important;
-            margin-top: 2px !important;
-            margin-bottom: 2px !important;
-        }
-        .stat {
-            padding: 2px 3px !important;
-        }
-        .stat-value {
-            font-size: 0.65em !important;
+            font-weight: 600 !important;
         }
         .stat-label {
             font-size: 0.45em !important;
+            margin-top: 0 !important;
+            line-height: 0.9 !important;
+            padding: 0 !important;
+            font-weight: 500 !important;
+        }
+    }
+    /* Specifico per smartphone piccoli */
+    @media screen and (max-width: 430px) {
+        header {
+            padding: 2px 3px !important;
+        }
+        header h1 {
+            font-size: 0.65em !important;
+        }
+        .stats {
+            gap: 1px !important;
+            margin-top: 1px !important;
+            margin-bottom: 1px !important;
+        }
+        .stat {
+            padding: 1px 2px !important;
+        }
+        .stat-value {
+            font-size: 0.55em !important;
+        }
+        .stat-label {
+            font-size: 0.4em !important;
         }
     }
     </style>
@@ -211,7 +226,9 @@
                 const statElements = document.querySelectorAll('.stat');
                 statElements.forEach(stat => {
                     stat.style.flex = '1';
-                    stat.style.padding = '3px 4px';
+                    stat.style.padding = '2px 3px';
+                    stat.style.minHeight = 'auto';
+                    stat.style.height = 'auto';
                     stat.style.textAlign = 'center';
                     stat.style.display = 'flex';
                     stat.style.flexDirection = 'column';
@@ -221,14 +238,14 @@
                 
                 const statValues = document.querySelectorAll('.stat-value');
                 statValues.forEach(value => {
-                    value.style.fontSize = '0.7em';
+                    value.style.fontSize = '0.6em';
                     value.style.lineHeight = '1';
                     value.style.marginBottom = '0';
                 });
                 
                 const statLabels = document.querySelectorAll('.stat-label');
                 statLabels.forEach(label => {
-                    label.style.fontSize = '0.5em';
+                    label.style.fontSize = '0.45em';
                     label.style.lineHeight = '1';
                     label.style.marginTop = '0';
                 });

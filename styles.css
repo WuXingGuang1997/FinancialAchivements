@@ -386,10 +386,19 @@ header h1 {
 .stats {
     display: flex !important;
     flex-direction: row !important;
-    gap: 6px !important;
+    gap: 4px !important;
     width: 100% !important;
     justify-content: space-between !important;
     align-items: stretch !important;
+}
+
+/* Mobile: gap ancora più piccolo */
+@media (max-width: 767px) {
+    .stats {
+        gap: 2px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 }
 
 /* Tablet e Desktop */
@@ -404,7 +413,7 @@ header h1 {
 .stat {
     text-align: center;
     position: relative;
-    padding: 6px 8px;
+    padding: 4px 6px;
     background: rgba(26, 26, 36, 0.8);
     border: 1px solid rgba(0, 243, 255, 0.3);
     border-radius: 6px;
@@ -417,6 +426,15 @@ header h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* Mobile: riduci drasticamente */
+@media (max-width: 767px) {
+    .stat {
+        padding: 2px 3px !important;
+        border-radius: 4px !important;
+        min-height: auto !important;
+    }
 }
 
 /* Tablet e Desktop */
@@ -444,20 +462,21 @@ header h1 {
 .stat-value {
     display: block;
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(0.75em, 2vw, 1.75em);
+    font-size: clamp(0.6em, 2vw, 1.75em);
     font-weight: 700;
     color: var(--neon-cyan);
     text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
     letter-spacing: 0;
-    line-height: 1.1;
+    line-height: 1;
     margin-bottom: 2px;
 }
 
-/* Mobile: riduci font valore */
+/* Mobile: riduci font valore drasticamente */
 @media (max-width: 767px) {
     .stat-value {
-        font-size: 0.75em !important;
-        margin-bottom: 1px !important;
+        font-size: 0.6em !important;
+        margin-bottom: 0 !important;
+        line-height: 0.9 !important;
     }
 }
 
@@ -471,20 +490,21 @@ header h1 {
 
 .stat-label {
     display: block;
-    font-size: clamp(0.5em, 1.2vw, 0.85em);
+    font-size: clamp(0.45em, 1.2vw, 0.85em);
     color: rgba(255, 255, 255, 0.7);
     margin-top: 2px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
-    line-height: 1.1;
+    letter-spacing: 0.2px;
+    line-height: 1;
 }
 
-/* Mobile: riduci font label */
+/* Mobile: riduci font label drasticamente */
 @media (max-width: 767px) {
     .stat-label {
-        font-size: 0.55em !important;
-        margin-top: 1px !important;
+        font-size: 0.45em !important;
+        margin-top: 0 !important;
+        line-height: 0.9 !important;
     }
 }
 
