@@ -4,77 +4,31 @@ let authenticatedUsers = {};
 
 // Inizializza il sistema di autenticazione
 function initAuth() {
-    // Verifica disponibilità localStorage
-    try {
-        const test = '__localStorage_test__';
-        localStorage.setItem(test, test);
-        const retrieved = localStorage.getItem(test);
-        localStorage.removeItem(test);
-        
-        if (retrieved !== test) {
-            throw new Error('localStorage non restituisce i dati correttamente');
-        }
-        
-        console.log('✅ localStorage test superato');
-    } catch (e) {
-        console.error('❌ localStorage non disponibile:', e);
-        const errorMsg = 'localStorage non è disponibile!\n\nPossibili cause:\n- Modalità privata/incognito\n- localStorage disabilitato\n- Spazio esaurito\n\nLe credenziali NON verranno salvate.';
-        alert(errorMsg);
-        return;
-    }
-    
-    // Debug: mostra cosa c'è nel localStorage
-    console.log('📦 Contenuto localStorage:');
-    console.log('- authUsers:', localStorage.getItem('authUsers') ? 'Presente' : 'Assente');
-    console.log('- currentSession:', localStorage.getItem('currentSession') ? 'Presente' : 'Assente');
-    console.log('- achievementUsers:', localStorage.getItem('achievementUsers') ? 'Presente' : 'Assente');
-    console.log('- currentAchievementUser:', localStorage.getItem('currentAchievementUser') ? 'Presente' : 'Assente');
-    
     // Carica utenti autenticati
-    try {
-        const savedAuthUsers = localStorage.getItem('authUsers');
-        if (savedAuthUsers) {
-            authenticatedUsers = JSON.parse(savedAuthUsers);
-            console.log('✅ Utenti caricati:', Object.keys(authenticatedUsers).length);
-        } else {
-            console.log('ℹ️ Nessun utente salvato trovato');
-        }
-    } catch (e) {
-        console.error('❌ Errore caricamento utenti:', e);
-        authenticatedUsers = {};
+    const savedAuthUsers = localStorage.getItem('authUsers');
+    if (savedAuthUsers) {
+        authenticatedUsers = JSON.parse(savedAuthUsers);
     }
     
     // Verifica sessione attiva
-    try {
-        const session = localStorage.getItem('currentSession');
-        if (session) {
+    const session = localStorage.getItem('currentSession');
+    if (session) {
+        try {
             const sessionData = JSON.parse(session);
-            console.log('📋 Sessione trovata:', sessionData);
-            
             // Verifica che la sessione non sia scaduta (24 ore)
-            const sessionAge = Date.now() - sessionData.timestamp;
-            const hoursOld = sessionAge / (60 * 60 * 1000);
-            
-            if (sessionAge < 24 * 60 * 60 * 1000) {
+            if (Date.now() - sessionData.timestamp < 24 * 60 * 60 * 1000) {
                 if (authenticatedUsers[sessionData.userId]) {
-                    console.log('✅ Sessione valida, utente:', authenticatedUsers[sessionData.userId].username);
                     currentSession = sessionData;
                     showMainApp();
                     return;
-                } else {
-                    console.warn('⚠️ Sessione trovata ma utente non esiste più');
-                    localStorage.removeItem('currentSession');
                 }
             } else {
-                console.log('⏰ Sessione scaduta (età:', hoursOld.toFixed(1), 'ore)');
+                // Sessione scaduta
                 localStorage.removeItem('currentSession');
             }
-        } else {
-            console.log('ℹ️ Nessuna sessione trovata');
+        } catch (e) {
+            localStorage.removeItem('currentSession');
         }
-    } catch (e) {
-        console.error('❌ Errore verifica sessione:', e);
-        localStorage.removeItem('currentSession');
     }
     
     // Mostra schermata di login
@@ -129,20 +83,8 @@ async function registerUser(username, password) {
         createdAt: new Date().toISOString()
     };
     
-    // Salva con gestione errori
-    try {
-        localStorage.setItem('authUsers', JSON.stringify(authenticatedUsers));
-        console.log('✅ Utenti salvati:', Object.keys(authenticatedUsers).length);
-        
-        // Verifica che sia stato salvato
-        const verify = localStorage.getItem('authUsers');
-        if (!verify) {
-            throw new Error('Salvataggio fallito - localStorage non disponibile');
-        }
-    } catch (error) {
-        console.error('❌ Errore salvataggio utenti:', error);
-        return { success: false, error: 'Errore nel salvataggio. Verifica che localStorage sia abilitato.' };
-    }
+    // Salva
+    localStorage.setItem('authUsers', JSON.stringify(authenticatedUsers));
     
     // Crea sessione
     const sessionToken = generateSessionToken();
@@ -152,20 +94,8 @@ async function registerUser(username, password) {
         timestamp: Date.now()
     };
     
-    try {
-        localStorage.setItem('currentSession', JSON.stringify(session));
-        console.log('✅ Sessione salvata per:', username.trim());
-        currentSession = session;
-        
-        // Verifica che sia stata salvata
-        const verifySession = localStorage.getItem('currentSession');
-        if (!verifySession) {
-            throw new Error('Salvataggio sessione fallito');
-        }
-    } catch (error) {
-        console.error('❌ Errore salvataggio sessione:', error);
-        return { success: false, error: 'Errore nel salvataggio della sessione.' };
-    }
+    localStorage.setItem('currentSession', JSON.stringify(session));
+    currentSession = session;
     
     // Inizializza dati utente nel sistema achievement
     initUserAchievements(userId, username.trim());
@@ -202,20 +132,8 @@ async function loginUser(username, password) {
         timestamp: Date.now()
     };
     
-    try {
-        localStorage.setItem('currentSession', JSON.stringify(session));
-        console.log('✅ Login sessione salvata per:', username.trim());
-        currentSession = session;
-        
-        // Verifica che sia stata salvata
-        const verifySession = localStorage.getItem('currentSession');
-        if (!verifySession) {
-            throw new Error('Salvataggio sessione fallito');
-        }
-    } catch (error) {
-        console.error('❌ Errore salvataggio sessione login:', error);
-        return { success: false, error: 'Errore nel salvataggio della sessione.' };
-    }
+    localStorage.setItem('currentSession', JSON.stringify(session));
+    currentSession = session;
     
     return { success: true };
 }
@@ -356,34 +274,11 @@ function setupAuthListeners() {
             
             const result = await loginUser(username, password);
             if (result.success) {
-                console.log('✅ Login completato con successo');
-                // Verifica che la sessione sia stata salvata
-                const verifySession = localStorage.getItem('currentSession');
-                console.log('Verifica salvataggio sessione:', verifySession ? 'OK' : 'ERRORE');
-                
-                if (!verifySession) {
-                    errorDiv.textContent = 'Errore: la sessione non è stata salvata. Verifica localStorage.';
-                    errorDiv.style.display = 'block';
-                    return;
-                }
-                
-                // Verifica finale prima di ricaricare
-                const finalCheckUsers = localStorage.getItem('authUsers');
-                const finalCheckSession = localStorage.getItem('currentSession');
-                
-                if (!finalCheckUsers || !finalCheckSession) {
-                    console.error('❌ Dati non salvati correttamente prima del reload');
-                    errorDiv.textContent = 'Errore: i dati non sono stati salvati. Riprova.';
-                    errorDiv.style.display = 'block';
-                    return;
-                }
-                
-                console.log('✅ Tutti i dati salvati correttamente, ricarico pagina...');
                 showMainApp();
                 // Ricarica la pagina per inizializzare tutto
                 setTimeout(() => {
                     window.location.reload();
-                }, 200);
+                }, 100);
             } else {
                 errorDiv.textContent = result.error;
                 errorDiv.style.display = 'block';
@@ -411,23 +306,11 @@ function setupAuthListeners() {
             
             const result = await registerUser(username, password);
             if (result.success) {
-                // Verifica finale prima di ricaricare
-                const finalCheckUsers = localStorage.getItem('authUsers');
-                const finalCheckSession = localStorage.getItem('currentSession');
-                
-                if (!finalCheckUsers || !finalCheckSession) {
-                    console.error('❌ Dati non salvati correttamente prima del reload');
-                    errorDiv.textContent = 'Errore: i dati non sono stati salvati. Riprova.';
-                    errorDiv.style.display = 'block';
-                    return;
-                }
-                
-                console.log('✅ Tutti i dati salvati correttamente, ricarico pagina...');
                 showMainApp();
                 // Ricarica la pagina per inizializzare tutto
                 setTimeout(() => {
                     window.location.reload();
-                }, 200);
+                }, 100);
             } else {
                 errorDiv.textContent = result.error;
                 errorDiv.style.display = 'block';
@@ -442,54 +325,9 @@ function setupAuthListeners() {
     }
 }
 
-// Verifica localStorage all'avvio
-function checkLocalStorage() {
-    try {
-        const testKey = '__storage_test__';
-        localStorage.setItem(testKey, 'test');
-        const testValue = localStorage.getItem(testKey);
-        localStorage.removeItem(testKey);
-        
-        if (testValue !== 'test') {
-            throw new Error('localStorage non funziona correttamente');
-        }
-        
-        console.log('✅ localStorage disponibile e funzionante');
-        return true;
-    } catch (e) {
-        console.error('❌ localStorage non disponibile:', e);
-        alert('ATTENZIONE: localStorage non è disponibile!\n\nPossibili cause:\n- Modalità privata/incognito attiva\n- localStorage disabilitato nel browser\n- Spazio di archiviazione esaurito\n\nLe tue credenziali non verranno salvate.');
-        return false;
-    }
-}
-
 // Inizializza quando il DOM è pronto
 document.addEventListener('DOMContentLoaded', () => {
-    if (checkLocalStorage()) {
-        initAuth();
-        setupAuthListeners();
-    } else {
-        // Mostra messaggio di errore
-        const loginScreen = document.getElementById('loginScreen');
-        if (loginScreen) {
-            loginScreen.innerHTML = `
-                <div class="login-container">
-                    <div class="login-header">
-                        <h1>⚠️ Errore</h1>
-                        <p>localStorage non è disponibile</p>
-                    </div>
-                    <div style="padding: 20px; text-align: center; color: #ff6b6b;">
-                        <p>Il tuo browser non supporta localStorage o è disabilitato.</p>
-                        <p style="margin-top: 10px;">Per utilizzare questa app:</p>
-                        <ul style="text-align: left; margin-top: 10px;">
-                            <li>Esci dalla modalità privata/incognito</li>
-                            <li>Abilita localStorage nelle impostazioni del browser</li>
-                            <li>Libera spazio di archiviazione</li>
-                        </ul>
-                    </div>
-                </div>
-            `;
-        }
-    }
+    initAuth();
+    setupAuthListeners();
 });
 
