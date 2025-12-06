@@ -352,11 +352,23 @@ function setupAuthListeners() {
                     return;
                 }
                 
+                // Verifica finale prima di ricaricare
+                const finalCheckUsers = localStorage.getItem('authUsers');
+                const finalCheckSession = localStorage.getItem('currentSession');
+                
+                if (!finalCheckUsers || !finalCheckSession) {
+                    console.error('❌ Dati non salvati correttamente prima del reload');
+                    errorDiv.textContent = 'Errore: i dati non sono stati salvati. Riprova.';
+                    errorDiv.style.display = 'block';
+                    return;
+                }
+                
+                console.log('✅ Tutti i dati salvati correttamente, ricarico pagina...');
                 showMainApp();
                 // Ricarica la pagina per inizializzare tutto
                 setTimeout(() => {
                     window.location.reload();
-                }, 100);
+                }, 200);
             } else {
                 errorDiv.textContent = result.error;
                 errorDiv.style.display = 'block';
@@ -384,11 +396,23 @@ function setupAuthListeners() {
             
             const result = await registerUser(username, password);
             if (result.success) {
+                // Verifica finale prima di ricaricare
+                const finalCheckUsers = localStorage.getItem('authUsers');
+                const finalCheckSession = localStorage.getItem('currentSession');
+                
+                if (!finalCheckUsers || !finalCheckSession) {
+                    console.error('❌ Dati non salvati correttamente prima del reload');
+                    errorDiv.textContent = 'Errore: i dati non sono stati salvati. Riprova.';
+                    errorDiv.style.display = 'block';
+                    return;
+                }
+                
+                console.log('✅ Tutti i dati salvati correttamente, ricarico pagina...');
                 showMainApp();
                 // Ricarica la pagina per inizializzare tutto
                 setTimeout(() => {
                     window.location.reload();
-                }, 100);
+                }, 200);
             } else {
                 errorDiv.textContent = result.error;
                 errorDiv.style.display = 'block';
@@ -403,9 +427,54 @@ function setupAuthListeners() {
     }
 }
 
+// Verifica localStorage all'avvio
+function checkLocalStorage() {
+    try {
+        const testKey = '__storage_test__';
+        localStorage.setItem(testKey, 'test');
+        const testValue = localStorage.getItem(testKey);
+        localStorage.removeItem(testKey);
+        
+        if (testValue !== 'test') {
+            throw new Error('localStorage non funziona correttamente');
+        }
+        
+        console.log('✅ localStorage disponibile e funzionante');
+        return true;
+    } catch (e) {
+        console.error('❌ localStorage non disponibile:', e);
+        alert('ATTENZIONE: localStorage non è disponibile!\n\nPossibili cause:\n- Modalità privata/incognito attiva\n- localStorage disabilitato nel browser\n- Spazio di archiviazione esaurito\n\nLe tue credenziali non verranno salvate.');
+        return false;
+    }
+}
+
 // Inizializza quando il DOM è pronto
 document.addEventListener('DOMContentLoaded', () => {
-    initAuth();
-    setupAuthListeners();
+    if (checkLocalStorage()) {
+        initAuth();
+        setupAuthListeners();
+    } else {
+        // Mostra messaggio di errore
+        const loginScreen = document.getElementById('loginScreen');
+        if (loginScreen) {
+            loginScreen.innerHTML = `
+                <div class="login-container">
+                    <div class="login-header">
+                        <h1>⚠️ Errore</h1>
+                        <p>localStorage non è disponibile</p>
+                    </div>
+                    <div style="padding: 20px; text-align: center; color: #ff6b6b;">
+                        <p>Il tuo browser non supporta localStorage o è disabilitato.</p>
+                        <p style="margin-top: 10px;">Per utilizzare questa app:</p>
+                        <ul style="text-align: left; margin-top: 10px;">
+                            <li>Esci dalla modalità privata/incognito</li>
+                            <li>Abilita localStorage nelle impostazioni del browser</li>
+                            <li>Libera spazio di archiviazione</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+    }
 });
 
