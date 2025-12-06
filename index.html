@@ -8,38 +8,71 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Achievements Investitore Retail | Futuristic</title>
-    <link rel="stylesheet" href="styles.css?v=6.0">
+    <link rel="stylesheet" href="styles.css?v=7.0">
     <style>
     /* Override forzato inline per mobile - garantisce applicazione */
-    @media (max-width: 767px) {
+    /* iPhone 12 e tutti i mobile */
+    @media screen and (max-width: 767px), screen and (max-width: 430px), screen and (max-width: 390px) {
         .stats {
             display: flex !important;
             flex-direction: row !important;
-            gap: 4px !important;
+            gap: 3px !important;
             justify-content: space-between !important;
             align-items: stretch !important;
             margin: 0 !important;
             padding: 0 !important;
+            width: 100% !important;
         }
         .stat {
-            flex: 1 !important;
-            padding: 4px 6px !important;
+            flex: 1 1 0% !important;
+            padding: 3px 4px !important;
             text-align: center !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
             align-items: center !important;
             margin: 0 !important;
+            min-width: 0 !important;
+            max-width: none !important;
         }
         .stat-value {
-            font-size: 0.75em !important;
-            margin-bottom: 1px !important;
+            font-size: 0.7em !important;
+            margin-bottom: 0 !important;
             line-height: 1 !important;
+            padding: 0 !important;
         }
         .stat-label {
-            font-size: 0.55em !important;
-            margin-top: 1px !important;
+            font-size: 0.5em !important;
+            margin-top: 0 !important;
             line-height: 1 !important;
+            padding: 0 !important;
+        }
+    }
+    /* Specifico per iPhone 12 (390px) */
+    @media screen and (max-width: 390px) {
+        header {
+            padding: 4px 6px !important;
+        }
+        .header-top {
+            margin-bottom: 2px !important;
+            gap: 2px !important;
+        }
+        header h1 {
+            font-size: 0.75em !important;
+        }
+        .stats {
+            gap: 2px !important;
+            margin-top: 2px !important;
+            margin-bottom: 2px !important;
+        }
+        .stat {
+            padding: 2px 3px !important;
+        }
+        .stat-value {
+            font-size: 0.65em !important;
+        }
+        .stat-label {
+            font-size: 0.45em !important;
         }
     }
     </style>

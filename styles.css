@@ -775,6 +775,38 @@ header h1 {
     }
 }
 
+/* iPhone 12 e mobile small (max 430px) */
+@media screen and (max-width: 430px), screen and (max-width: 390px) {
+    .stats {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 3px !important;
+        justify-content: space-between !important;
+        align-items: stretch !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .stat {
+        flex: 1 !important;
+        padding: 3px 4px !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .stat-value {
+        font-size: 0.7em !important;
+        margin-bottom: 0 !important;
+        line-height: 1 !important;
+    }
+    .stat-label {
+        font-size: 0.5em !important;
+        margin-top: 0 !important;
+        line-height: 1 !important;
+    }
+}
+
 /* Mobile Small (max 480px) */
 @media (max-width: 480px) {
     header {
