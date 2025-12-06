@@ -750,25 +750,26 @@ header h1 {
 /* Mobile Small (max 480px) */
 @media (max-width: 480px) {
     header {
-        padding: 6px 8px !important;
+        padding: 4px 6px !important;
     }
     
     .header-top {
         flex-direction: column;
         align-items: flex-start;
-        gap: 4px !important;
-        margin-bottom: 4px !important;
+        gap: 3px !important;
+        margin-bottom: 3px !important;
     }
     
     header h1 {
         margin-bottom: 0 !important;
-        font-size: 0.85em !important;
+        font-size: 0.8em !important;
         line-height: 1 !important;
         padding: 0 !important;
     }
     
     .stats {
-        margin-top: 4px !important;
+        margin-top: 2px !important;
+        margin-bottom: 2px !important;
     }
     
     .user-selector-btn {
