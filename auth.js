@@ -8,12 +8,27 @@ function initAuth() {
     try {
         const test = '__localStorage_test__';
         localStorage.setItem(test, test);
+        const retrieved = localStorage.getItem(test);
         localStorage.removeItem(test);
+        
+        if (retrieved !== test) {
+            throw new Error('localStorage non restituisce i dati correttamente');
+        }
+        
+        console.log('✅ localStorage test superato');
     } catch (e) {
         console.error('❌ localStorage non disponibile:', e);
-        alert('localStorage non è disponibile. Potresti essere in modalità privata o avere localStorage disabilitato.');
+        const errorMsg = 'localStorage non è disponibile!\n\nPossibili cause:\n- Modalità privata/incognito\n- localStorage disabilitato\n- Spazio esaurito\n\nLe credenziali NON verranno salvate.';
+        alert(errorMsg);
         return;
     }
+    
+    // Debug: mostra cosa c'è nel localStorage
+    console.log('📦 Contenuto localStorage:');
+    console.log('- authUsers:', localStorage.getItem('authUsers') ? 'Presente' : 'Assente');
+    console.log('- currentSession:', localStorage.getItem('currentSession') ? 'Presente' : 'Assente');
+    console.log('- achievementUsers:', localStorage.getItem('achievementUsers') ? 'Presente' : 'Assente');
+    console.log('- currentAchievementUser:', localStorage.getItem('currentAchievementUser') ? 'Presente' : 'Assente');
     
     // Carica utenti autenticati
     try {
