@@ -8,7 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Achievements Investitore Retail | Futuristic</title>
-    <link rel="stylesheet" href="styles.css?v=7.0">
+    <link rel="stylesheet" href="styles.css?v=8.0">
     <style>
     /* Override forzato inline per mobile - garantisce applicazione */
     /* iPhone 12 e tutti i mobile */
@@ -194,5 +194,61 @@
     <script src="auth.js"></script>
     <script src="users.js"></script>
     <script src="app.js"></script>
+    <script>
+    // Forza layout compatto statistiche su mobile
+    (function() {
+        function applyCompactStats() {
+            const stats = document.querySelector('.stats');
+            if (stats && window.innerWidth <= 430) {
+                stats.style.display = 'flex';
+                stats.style.flexDirection = 'row';
+                stats.style.gap = '3px';
+                stats.style.justifyContent = 'space-between';
+                stats.style.alignItems = 'stretch';
+                stats.style.margin = '0';
+                stats.style.padding = '0';
+                
+                const statElements = document.querySelectorAll('.stat');
+                statElements.forEach(stat => {
+                    stat.style.flex = '1';
+                    stat.style.padding = '3px 4px';
+                    stat.style.textAlign = 'center';
+                    stat.style.display = 'flex';
+                    stat.style.flexDirection = 'column';
+                    stat.style.justifyContent = 'center';
+                    stat.style.alignItems = 'center';
+                });
+                
+                const statValues = document.querySelectorAll('.stat-value');
+                statValues.forEach(value => {
+                    value.style.fontSize = '0.7em';
+                    value.style.lineHeight = '1';
+                    value.style.marginBottom = '0';
+                });
+                
+                const statLabels = document.querySelectorAll('.stat-label');
+                statLabels.forEach(label => {
+                    label.style.fontSize = '0.5em';
+                    label.style.lineHeight = '1';
+                    label.style.marginTop = '0';
+                });
+            }
+        }
+        
+        // Applica al caricamento
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', applyCompactStats);
+        } else {
+            applyCompactStats();
+        }
+        
+        // Applica al resize
+        window.addEventListener('resize', applyCompactStats);
+        
+        // Applica dopo un breve delay per sicurezza
+        setTimeout(applyCompactStats, 100);
+        setTimeout(applyCompactStats, 500);
+    })();
+    </script>
 </body>
 </html>
